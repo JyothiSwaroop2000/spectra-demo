@@ -1,4 +1,4 @@
-const { add, subtract, multiply, divide, percentage } = require('../src/calculator');
+const { add, subtract, multiply, divide, percentage, power } = require('../src/calculator');
 
 describe('calculator', () => {
   test('adds two numbers', () => {
@@ -27,5 +27,9 @@ describe('calculator', () => {
 
   test('percentage of zero whole is 0', () => {
     expect(percentage(5, 0)).toBe(0);
+  });
+
+  test('raises to a power', () => {
+    expect(power(2, 10)).toBe(1024);
   });
 });

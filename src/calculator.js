@@ -24,4 +24,8 @@ function percentage(part, whole) {
   return (part / whole) * 100;
 }
 
-module.exports = { add, subtract, multiply, divide, percentage };
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+module.exports = { add, subtract, multiply, divide, percentage, power };
