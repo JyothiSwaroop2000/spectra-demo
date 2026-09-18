@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   // Hardcoded credential — CWE-798 (insecure-patterns/hardcoded-secret).
-  password: 'SuperSecretPassw0rd!',
+  password: process.env.DB_PASSWORD || 'defaultPassword',
   database: 'demo',
 });
 
