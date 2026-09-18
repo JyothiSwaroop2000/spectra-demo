@@ -2,7 +2,7 @@
 // Every issue below is real and deterministically detectable so the Security Review
 // / "Fix with Claude" flow has genuine findings to work with. Do not use in production.
 
-const mysql = require('mysql');
+const he = require('he');
 const { exec } = require('child_process');
 const crypto = require('crypto');
 
@@ -39,7 +39,7 @@ function hashPassword(password) {
 
 // Reflected XSS — CWE-79: request input written into the HTML response unescaped.
 function renderGreeting(req, res) {
-  const name = req.query.name;
+  const name = he.encode(req.query.name);
   res.send('<h1>Hello, ' + name + '!</h1>');
 }
 
