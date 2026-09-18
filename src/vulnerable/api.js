@@ -17,8 +17,8 @@ const db = mysql.createConnection({
 // SQL Injection — CWE-89: user input concatenated directly into the query string.
 function getUserByName(req, res) {
   const username = req.query.username;
-  const query = "SELECT * FROM users WHERE username = '" + username + "'";
-  db.query(query, (err, results) => {
+  const query = 'SELECT * FROM users WHERE username = ?';
+  db.query(query, [username], (err, results) => {
     if (err) throw err;
     res.json(results);
   });
